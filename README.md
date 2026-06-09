@@ -17,3 +17,9 @@ This repository demonstrates my ability to evaluate software quality, identify b
 - Security Assessment
 - Technical Writing
 - AI Preference Ranking
+
+## Repository Structure
+
+- python-reviews - Security and code quality reviews
+- sql-reviews - Database security and query analysis
+- ai-ranking-examples - AI response comparisons and rankings
