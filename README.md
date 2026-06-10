@@ -1,4 +1,4 @@
-# Code Review Portfolio
+# Code Review
 
 This repository demonstrates my ability to evaluate software quality, identify bugs, assess security risks, and provide technical recommendations.
 
