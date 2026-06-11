@@ -6,20 +6,22 @@ A financial application contains the following roles:
 
 ### Finance Analyst
 
-Permissions:
-- View Financial Reports
-- Create Purchase Requests
-- Approve Purchase Requests
-- Modify Vendor Records
+**Permissions**
+
+* View Financial Reports
+* Create Purchase Requests
+* Approve Purchase Requests
+* Modify Vendor Records
 
 ### Finance Manager
 
-Permissions:
-- View Financial Reports
-- Create Purchase Requests
-- Approve Purchase Requests
-- Modify Vendor Records
-- Manage User Access
+**Permissions**
+
+* View Financial Reports
+* Create Purchase Requests
+* Approve Purchase Requests
+* Modify Vendor Records
+* Manage User Access
 
 ---
 
@@ -27,37 +29,31 @@ Permissions:
 
 ### Excessive Privileges Assigned to Finance Analyst
 
-Severity: High
+**Severity:** High
 
-The Finance Analyst role includes both request creation and approval capabilities.
-
-This creates a Segregation of Duties (SoD) conflict because the same individual can initiate and approve transactions.
+The Finance Analyst role includes both request creation and approval capabilities. This creates a Segregation of Duties (SoD) concern because the same user can initiate and approve transactions without independent review.
 
 ### Inappropriate Administrative Access
 
-Severity: Critical
+**Severity:** Critical
 
-The Finance Manager role includes user access management privileges.
+The Finance Manager role includes user access management privileges. Access provisioning and role administration should be restricted to designated administrative roles and governed through established access management processes.
 
-User provisioning and access administration should be restricted to authorized administrative personnel and governed by established access control procedures.
+### Least Privilege Violations
 
-### Principle of Least Privilege Violations
+**Severity:** High
 
-Severity: High
-
-Several permissions exceed the responsibilities typically required for the assigned business functions.
-
-Users should receive only the minimum level of access necessary to perform their job duties.
+Several permissions appear broader than necessary for the intended business responsibilities. Access should be limited to only what is required to perform assigned job functions.
 
 ---
 
 ## Risks
 
-- Unauthorized transactions
-- Fraud risk
-- Audit findings
-- Compliance violations
-- Inadequate segregation of duties
+* Unauthorized or unapproved transactions
+* Increased risk of fraud
+* Audit findings during compliance reviews
+* Regulatory or internal policy violations
+* Weak enforcement of segregation of duties
 
 ---
 
@@ -65,34 +61,39 @@ Users should receive only the minimum level of access necessary to perform their
 
 ### Finance Analyst
 
-Retain:
-- View Financial Reports
-- Create Purchase Requests
+**Retain**
 
-Remove:
-- Approve Purchase Requests
-- Modify Vendor Records
+* View Financial Reports
+* Create Purchase Requests
+
+**Remove**
+
+* Approve Purchase Requests
+* Modify Vendor Records
 
 ### Finance Manager
 
-Retain:
-- View Financial Reports
-- Approve Purchase Requests
+**Retain**
 
-Remove:
-- Manage User Access
+* View Financial Reports
+* Approve Purchase Requests
+* Modify Vendor Records
+
+**Remove**
+
+* Manage User Access
 
 ### Administrative Access
 
 Create a dedicated administrative role responsible for:
 
-- User provisioning
-- Role assignments
-- Access reviews
-- Access certification activities
+* User provisioning
+* Role assignments
+* Access reviews
+* Access certification
 
 ---
 
 ## Final Assessment
 
-The current RBAC design introduces unnecessary risk through excessive permissions and inadequate segregation of duties. Redesigning roles according to least privilege and separation of responsibilities would significantly improve security, compliance, and audit readiness.
+The current RBAC design introduces unnecessary risk due to excessive permissions and inadequate segregation of duties. Aligning access with least privilege principles and separating administrative responsibilities would improve security, compliance, and audit readiness.
