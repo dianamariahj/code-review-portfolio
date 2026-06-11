@@ -1,35 +1,44 @@
-# SQL Injection Vulnerability Review
+## SQL Injection Vulnerability Review
 
-## Code Example
+### Code Example
 
 ```sql
 SELECT * FROM users
 WHERE username = '" + username + "'
 ```
 
-## Findings
+### Finding
 
-### SQL Injection Risk
+**SQL Injection Risk**
+**Severity:** Critical
 
-Severity: Critical
+User-supplied input is directly concatenated into the SQL statement. Because input is not properly separated from query logic, the application is vulnerable to injection attacks that can alter the intended behavior of the query.
 
-The query directly incorporates user input into the SQL statement.
+This issue may allow unauthorized data access, authentication bypass, or other unintended database operations depending on how the query is used.
 
-An attacker could manipulate the input and execute unauthorized database commands.
+### Example Attack
 
-## Example Attack
-
-Input:
+**Input:**
 
 ```text
 ' OR '1'='1
 ```
 
-This could alter query behavior and potentially expose sensitive data.
+**Resulting Query:**
 
-## Recommendations
+```sql
+SELECT * FROM users
+WHERE username = '' OR '1'='1'
+```
 
-- Use parameterized queries
-- Validate and sanitize input
-- Apply least-privilege database permissions
-- Perform regular security testing
+### Recommendations
+
+* Use parameterized queries or prepared statements.
+* Do not construct SQL statements using string concatenation.
+* Validate input against expected formats and constraints.
+* Apply least-privilege permissions to database accounts.
+* Include security testing and code review in the development lifecycle.
+
+### Review Summary
+
+The implementation is vulnerable to SQL injection due to improper handling of user input. This issue should be addressed prior to deployment, as it poses a significant risk to the confidentiality and integrity of application data.
